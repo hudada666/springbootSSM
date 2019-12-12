@@ -1,0 +1,25 @@
+spring:     # 表示该配置直接为Spring容器负责处理
+  thymeleaf:
+    prefix: classpath:/templates/  #prefix：指定模板所在的目录
+    suffix: .html
+    mode: HTML
+    cache: false
+    encoding: UTF-8
+  messages: # 表示进行资源配置
+    basename: i18n/Messages,i18n/Pages  # 资源文件的名称
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource     # 配置当前要使用的数据源的操作类型
+    driver-class-name: org.gjt.mm.mysql.Driver    # 配置MySQL的驱动程序类
+    url: jdbc:mysql://localhost:3306/study           # 数据库连接地址
+    username: root                                  # 数据库用户名
+    password: hu114212                            # 数据库连接密码
+    dbcp2:                                          # 进行数据库连接池的配置
+        min-idle: 5                                   # 数据库连接池的最小维持连接数
+        initial-size: 5                               # 初始化提供的连接数
+        max-total: 5                                  # 最大的连接数
+        max-wait-millis: 200                          # 等待连接获取的最大超时时间
+  mybatis:
+    config-location: classpath:mybatis/mybatis.cfg.xml    # mybatis配置文件所在路径
+    type-aliases-package: cn.study.microboot.vo            # 定义所有操作类的别名所在包
+    mapper-locations:                                  apper映射文件
+    - classpath:mybatis/mapper/cn/mldn/*.xml
